@@ -12,11 +12,10 @@ public class Gugudan {
 		while (i<=9) {
 			int j=2;
 			while (j<=9) {
-				System.out.print(j + " * " + i + " = " +  i*j + "		");
+				System.out.print(j + " * " + i + " = " +  i*j + "	");
 			j++;
-			} break;
-		}
+			} System.out.println();
 		i++; 
-
+		}
 	}
 }
