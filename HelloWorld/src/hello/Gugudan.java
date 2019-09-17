@@ -15,7 +15,7 @@ public class Gugudan {
 				System.out.print(j + " * " + i + " = " +  i*j + "	");
 			j++;
 			} System.out.println();
-		i++; 
+		i++;
 		}
 	}
 }
