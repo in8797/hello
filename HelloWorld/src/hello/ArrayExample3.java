@@ -11,13 +11,14 @@ public class ArrayExample3 {
 				intAry[i][j] = a++;
 			}
 		}
-
+		int sum = 0;
 		for (int i = 0; i < intAry.length; i++) {
-			int sum = 0;
+
 			for (int j = 0; j < intAry[i].length; j++) {
 				sum +=intAry[i][j];
-				System.out.println(sum);
+
 			}
+			System.out.println(sum);
 
 //		}
 //		for (int i = 0; i < intAry.length; i++) {
