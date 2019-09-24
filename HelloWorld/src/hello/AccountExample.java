@@ -78,8 +78,8 @@ public class AccountExample {
 		System.out.println("출금액: ");
 		int accntBalance = sc.nextInt();
 		for (Account accnt : accountArray) {
-			if(accnt.getAno().equals(accntNO)) {
-				accnt.setBalance(accntBalance);
+			if(accnt != null && accnt.getAno().equals(accntNO)) {
+				accnt.setBalance(-accntBalance);
 			}
 		}
 	}
