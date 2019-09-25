@@ -60,7 +60,7 @@ public class MemberExample2 {
 		String MemberId = sc.nextLine();
 		System.out.println("password : ");
 		String MemberPwd = sc.nextLine();
-		boolean isId = true, isPw = true;
+		boolean isId = false, isPw = false;
 		// id, passwd 같으면 이름, 나이를 출력.
 		// id 맞고 passwd가 다르면 비밀번호가 잘못됐습니다.
 		// id(x), passwd(x) => 존재하지 않는 아이디입니다.
@@ -72,7 +72,7 @@ public class MemberExample2 {
 					isId = true;
 					isPw = true;
 					name = mm.getName();
-					age = mm.getAge();
+					age = mm.getAge(); // id,passwd 이름,나이랑 출력 함
 					break;
 
 				} else { // id(o), passwd(x)
@@ -86,7 +86,7 @@ public class MemberExample2 {
 				isPw = false;
 			}
 		}
-		if (isId == true && isPw == true)
+		if (isId && isPw)
 			System.out.println("이름은: " + name + ", 나이는: " + age);
 		else if (isId == true && isPw == false)
 			System.out.println("비번이 틀림");
