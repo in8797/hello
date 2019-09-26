@@ -5,7 +5,7 @@ public class Car {
 	Tire frontright = new Tire("앞오른쪽", 2);
 	Tire backLeft = new Tire("뒤왼쪽", 3);
 	Tire backright = new Tire("뒤오른쪽", 4);
-
+	//필드 선언시 클래스의 인스턴스도 사용할수 있다.
 	int run() {
 		System.out.println("[자동차가 달립니다]");
 		if (frontLeft.roll() == false) {
