@@ -56,7 +56,7 @@ public class TestScore {
 
 	public static void allList() {
 		for (int i = 0; i < testAry.length; i++) {
-			if (testAry != null)
+			if (testAry[i] != null)
 				System.out.println(testAry[i].getSnum() + "/ " + testAry[i].getName() + "/ " + testAry[i].getKo() + "/ "
 						+ testAry[i].getEn() + "/ " + testAry[i].getMa());
 		}
@@ -67,7 +67,7 @@ public class TestScore {
 		int num1 = sc.nextInt();
 
 		for (int i = 0; i < testAry.length; i++) {
-			if (testAry != null && testAry[i].getSnum() == num1) {
+			if (testAry[i] != null && testAry[i].getSnum() == num1) {
 				System.out.println(testAry[i].getSnum() + "/ " + testAry[i].getName() + "/ " + testAry[i].getKo() + "/ "
 						+ testAry[i].getEn() + "/ " + testAry[i].getMa() + "/ " + testAry[i].getSum() + "/ "
 						+ testAry[i].getAge());
