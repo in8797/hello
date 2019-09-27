@@ -9,7 +9,7 @@ public class TestScore {
 	public static void main(String[] args) {
 		boolean run = true;
 
-		while (run) {
+		while (run) {			//메뉴입력
 			System.out.println("1.학생성적등록 2.전체리스트 3.학생번호조회 4.전체통계 5.총점기준정렬 6.종료");
 			int menu = sc.nextInt();
 
@@ -30,8 +30,8 @@ public class TestScore {
 
 		}
 	}
-
-	public static void creat() {
+	
+	public static void creat() {//학생성적입력
 		System.out.println("학생번호 : ");
 		int snum = sc.nextInt();
 		sc.nextLine();
@@ -53,7 +53,7 @@ public class TestScore {
 		}
 	}
 
-	public static void allList() {
+	public static void allList() {//전체리스트
 		for (int i = 0; i < testAry.length; i++) {
 			if (testAry[i] != null)
 				System.out.println(testAry[i].getSnum() + "/ " + testAry[i].getName() + "/ " + testAry[i].getKo() + "/ "
@@ -61,7 +61,7 @@ public class TestScore {
 		}
 	}
 
-	public static void List() {
+	public static void List() {//학생번호조회
 		System.out.println("학생번호를 입력 : ");
 		int num1 = sc.nextInt();
 
@@ -75,7 +75,7 @@ public class TestScore {
 		}
 	}
 
-	public static void Num() {
+	public static void Num() {//전체통계
 
 	}
 
