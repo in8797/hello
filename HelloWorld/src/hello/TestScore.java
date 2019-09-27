@@ -26,7 +26,6 @@ public class TestScore {
 			} else {
 				System.out.println("종료.");
 				run = false;
-				break;
 			}
 
 		}
@@ -70,7 +69,7 @@ public class TestScore {
 			if (testAry[i] != null && testAry[i].getSnum() == num1) {
 				System.out.println(testAry[i].getSnum() + "/ " + testAry[i].getName() + "/ " + testAry[i].getKo() + "/ "
 						+ testAry[i].getEn() + "/ " + testAry[i].getMa() + "/ " + testAry[i].getSum() + "/ "
-						+ testAry[i].getAge());
+						+ testAry[i].getAvg());
 
 			}
 		}

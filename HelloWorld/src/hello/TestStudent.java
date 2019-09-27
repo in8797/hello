@@ -7,7 +7,7 @@ public class TestStudent {
 	int en;
 	int ma;
 	int sum;
-	double age;
+	double avg;
 	
 	public TestStudent() {
 		
@@ -15,7 +15,7 @@ public class TestStudent {
 	public TestStudent(int sum, double age) {
 		super();
 		this.sum = sum;
-		this.age = age;
+		this.avg = avg;
 	}
 	public TestStudent(int snum, String name, int ko, int en, int ma) {
 		this.snum = snum;
@@ -25,7 +25,7 @@ public class TestStudent {
 		this.ma = ma;
 
 	}
-	public TestStudent(int snum, String name, int ko, int en, int ma, int sum, double age) {
+	public TestStudent(int snum, String name, int ko, int en, int ma, int sum, double avg) {
 		super();
 		this.snum = snum;
 		this.name = name;
@@ -33,7 +33,7 @@ public class TestStudent {
 		this.en = en;
 		this.ma = ma;
 		this.sum = sum;
-		this.age = age;
+		this.avg = avg;
 	}
 	public int getSum() {
 		return ko+en+ma;
@@ -41,12 +41,12 @@ public class TestStudent {
 	public void setSum(int sum) {
 		this.sum = sum;
 	}
-	public double getAge() {
+	public double getAvg() {
 		
-		return age=sum/3;
+		return avg=sum/3;
 	}
-	public void setAge(double age) {
-		this.age = age;
+	public void setAvg(double avg) {
+		this.avg = avg;
 	}
 	public int getSnum() {
 		return snum;
