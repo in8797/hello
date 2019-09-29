@@ -29,9 +29,10 @@ public class BoardProc {
 	}
 
 	public void writeBoard() {
-		//System.out.println("글작성");
+		// System.out.println("글작성");
 		System.out.println("게시글번호입력 : ");
-		int boardNo = sc.nextInt();sc.nextLine(); //********
+		int boardNo = sc.nextInt();
+		sc.nextLine(); // ********
 		System.out.println("제목을 입력 : ");
 		String title = sc.nextLine();
 		System.out.println("내용을 입력 : ");
@@ -49,7 +50,7 @@ public class BoardProc {
 	}
 
 	public void getBoard() {
-		//System.out.println("한건조회");
+		// System.out.println("한건조회");
 		System.out.println("조회할 번호를 입력 : ");
 		int boardNo = sc.nextInt();
 		for (int i = 0; i < boardAry.length; i++) {
@@ -61,11 +62,11 @@ public class BoardProc {
 	}
 
 	public void getBoardList() {
-		//System.out.println("전체글조회");
-		for (int i = 0; i < boardAry.length; i++) {
+		// System.out.println("전체글조회");
+		for (Board bd : boardAry) {
 			if (boardAry != null) {
-				System.out.println(boardAry[i].getBoardNo() + ", " + boardAry[i].getTitle() + ", "
-						+ boardAry[i].getContents() + ", " + boardAry[i].getWriter());
+				System.out.println(
+						bd.getBoardNo() + ", " + bd.getTitle() + ", " + bd.getContents() + ", " + bd.getWriter());
 			}
 		}
 	}
