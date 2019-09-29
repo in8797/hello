@@ -45,4 +45,9 @@ public class Board {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
+	@Override
+	public String toString() {
+		return "[게시글번호=" + boardNo + ", 제목=" + title + ", 내용=" + contents + ", 작성자=" + writer + "]";
+	}
+	
 }
