@@ -101,7 +101,10 @@ public class BoardProc {
 	public void getBoardDelete() {
 		System.out.println("삭제할 번호를 입력 : ");
 		int boardNo = sc.nextInt();
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/in8797/hello.git
 		// Board boards = service.getBoardDelete(boardNo, boardAry);
 		// System.out.println(boards);
 	}
