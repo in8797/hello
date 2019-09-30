@@ -1,4 +1,4 @@
-package house;
+package api;
 
 public class BoxingUnBoxingExample {
 	public static void main(String[] args) {

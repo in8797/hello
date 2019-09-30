@@ -15,8 +15,16 @@ public class BoardProc {
 		while (true) {
 			System.out.println("메뉴선택하세요");
 			System.out.println("1.작성 2.단건조회 3.전체조회 4.삭제 5.변경");
-			int menu = sc.nextInt();
-			sc.nextLine();
+			int menu = 0;
+			try {
+				menu = sc.nextInt(); // error 발생가능한 곳
+				sc.nextLine();
+			} catch (Exception e) {
+				System.out.println("정상적인 메뉴를 선택해주세요.");
+				sc.nextLine();
+//				e.printStackTrace();
+			}
+
 			if (menu == 1) {
 				writeBoard();
 			} else if (menu == 2) {
@@ -38,25 +46,36 @@ public class BoardProc {
 
 	public void writeBoard() {
 		// System.out.println("글작성");
-		System.out.println("게시글번호입력 : ");
-		int boardNo = sc.nextInt();
-		sc.nextLine(); // ********
-		System.out.println("제목을 입력 : ");
-		String title = sc.nextLine();
-		System.out.println("내용을 입력 : ");
-		String contents = sc.nextLine();
-		System.out.println("작성자를 입력 : ");
-		String writer = sc.nextLine();
-		Board board = new Board(boardNo, title, contents, writer);
 
-		service.writeBoard(board, boardAry);
+		while (true) {
+			System.out.println("게시글번호입력 : ");
+			int boardNo = 0;
+			try {
+				boardNo = sc.nextInt();
+				sc.nextLine(); // ********
+				break;
+			} catch (Exception e) {
+				System.out.println("숫자만 입력해주세요.");
+				sc.nextLine();
+
+			}
+
+			System.out.println("제목을 입력 : ");
+			String title = sc.nextLine();
+			System.out.println("내용을 입력 : ");
+			String contents = sc.nextLine();
+			System.out.println("작성자를 입력 : ");
+			String writer = sc.nextLine();
+			Board board = new Board(boardNo, title, contents, writer);
+
+			service.writeBoard(board, boardAry);
 //		for (int i = 0; i < boardAry.length; i++) {
 //			if (boardAry[i] == null) {
 //				boardAry[i] = board;
 //				break;
 //			}
 //		}
-
+		}
 	}
 
 	public void getBoard() {

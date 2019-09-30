@@ -1,4 +1,4 @@
-package house;
+package api;
 
 public class MathExample {
 	public static void main(String[] args) {

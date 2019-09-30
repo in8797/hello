@@ -1,4 +1,4 @@
-package house;
+package api;
 
 public class MathRandomExample {
 	public static void main(String[] args) {

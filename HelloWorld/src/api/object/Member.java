@@ -1,4 +1,4 @@
-package object;
+package api.object;
 
 public class Member {
 	public String id;

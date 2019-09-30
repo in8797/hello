@@ -1,4 +1,4 @@
-package house;
+package api;
 
 public class Member implements Comparable<Member> {
 	String name;
