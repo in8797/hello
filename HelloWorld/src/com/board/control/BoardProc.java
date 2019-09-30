@@ -1,9 +1,6 @@
 package com.board.control;
 
-import java.security.Provider.Service;
 import java.util.Scanner;
-
-import javax.print.attribute.standard.Severity;
 
 import com.board.impl.BoardServiceImpl;
 import com.board.model.Board;
@@ -77,11 +74,21 @@ public class BoardProc {
 	}
 
 	public void getBoardList() {
-		System.out.println("전체글조회");
-		Board[] resultAry = service.getBoardList(boardAry);
-		for (Board brd : resultAry) {
 
-			System.out.println(brd);
+		// System.out.println("전체글조회");
+		for (Board bd : boardAry) {
+			if (boardAry != null) {
+				System.out.println(
+						bd.getBoardNo() + ", " + bd.getTitle() + ", " + bd.getContents() + ", " + bd.getWriter());
+			}
+
+			System.out.println("전체글조회");
+			Board[] resultAry = service.getBoardList(boardAry);
+			for (Board brd : resultAry) {
+
+				System.out.println(brd);
+
+			}
 		}
 //		for (int i = 0; i < boardAry.length; i++) {
 //			if (boardAry[i] != null) {
@@ -94,13 +101,15 @@ public class BoardProc {
 	public void getBoardDelete() {
 		System.out.println("삭제할 번호를 입력 : ");
 		int boardNo = sc.nextInt();
-		Board boards = service.getBoardDelete(boardNo, boardAry);
-		System.out.println(boards);
+
+		// Board boards = service.getBoardDelete(boardNo, boardAry);
+		// System.out.println(boards);
 	}
 
 	public void getupdateBoard() {
 		System.out.println("변경할 글번호 : ");
-		int boardNo = sc.nextInt();sc.nextLine();
+		int boardNo = sc.nextInt();
+		sc.nextLine();
 		System.out.println("변경할 제목 : ");
 		String title = sc.nextLine();
 		System.out.println("변경할 내용 : ");
