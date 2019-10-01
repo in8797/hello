@@ -57,7 +57,6 @@ public class BoardProc {
 			} catch (Exception e) {
 				System.out.println("숫자만 입력해주세요.");
 				sc.nextLine();
-
 			}
 
 			System.out.println("제목을 입력 : ");
