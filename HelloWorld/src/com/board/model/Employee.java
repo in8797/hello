@@ -3,11 +3,12 @@ package com.board.model;
 public class Employee {
 	private int employeeId;
 	private String firstName;
-	private String lastNmae;
+	private String lastName;
 	private String email;
 	private String hireDate;
 	private int salary;
 	private String jobId;
+	private String deptName;
 	
 	public int getEmployeeId() {
 		return employeeId;
@@ -21,11 +22,11 @@ public class Employee {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getLastNmae() {
-		return lastNmae;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setLastNmae(String lastNmae) {
-		this.lastNmae = lastNmae;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getEmail() {
 		return email;
@@ -51,11 +52,18 @@ public class Employee {
 	public void setJobId(String jobId) {
 		this.jobId = jobId;
 	}
+	public String getDeptName() {
+		return deptName;
+	}
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
 	@Override
-	
 	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", firstName=" + firstName + ", lastNmae=" + lastNmae + ", email="
-				+ email + ", hireDate=" + hireDate + ", salary=" + salary + ", jobId=" + jobId + "]";
+		return "Employee [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+				+ email + ", hireDate=" + hireDate + ", salary=" + salary + ", jobId=" + jobId + ", deptName="
+				+ deptName + "]";
 	}
 
+	
 }

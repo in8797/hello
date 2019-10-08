@@ -16,12 +16,14 @@ public class EmployeeserviceImpl implements EmployeeService {
 
 	@Override
 	public Employee getEmployee(int empNo) {
-		return null;
+		Employee emp = dao.getEmployee(empNo);
+		return emp;
 	}
 
 	@Override
 	public void insertEmployee(Employee emp) {
-		dao.insertEmp(emp);
+//		dao.insertEmp(emp);
+		dao.insertEmpProc(emp);
 	}
 
 	@Override
@@ -30,8 +32,9 @@ public class EmployeeserviceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void deleteEmployee(int empNp) {
-
+	public Employee deleteEmployee(int empNp) {
+		dao.deleteEmp(empNp);
+		return null;
 	}
 
 }

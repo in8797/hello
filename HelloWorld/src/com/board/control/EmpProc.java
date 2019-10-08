@@ -64,11 +64,11 @@ public class EmpProc {
 		sc.nextLine();
 		System.out.println("직종를 입력하세요 : ");
 		String jobId = sc.nextLine();
-		//입력 받은 값을 emp 인스턴스에 담는다.
+		// 입력 받은 값을 emp 인스턴스에 담는다.
 		Employee emp = new Employee();
 		emp.setEmployeeId(empId);
 		emp.setFirstName(firstName);
-		emp.setLastNmae(lastNmae);
+		emp.setLastName(lastNmae);
 		emp.setEmail(email);
 		emp.setHireDate(hireDate);// 2010-10-05
 		emp.setSalary(salary);
@@ -78,21 +78,11 @@ public class EmpProc {
 	}
 
 	public void getBoard() {
-		// System.out.println("한건조회");
-//		System.out.println("조회할 번호를 입력 : ");
-//		int EmployeeNo = sc.nextInt();
-//		List<Employee> employees = service.getEmpList();
-//		for (Employee employee : employees) {
-//			System.out.println(inse);
-//		}
-//		Board board = service.getBoard(boardNo, boardAry);
-//		System.out.println(board);
-//		for (int i = 0; i < boardAry.length; i++) {
-//			if (boardAry[i] != null && boardAry[i].getBoardNo() == boardNo) {
-//				System.out.println(boardAry[i].getBoardNo() + ", " + boardAry[i].getTitle() + ", "
-//						+ boardAry[i].getContents() + ", " + boardAry[i].getWriter());
-//			}
-//		}
+		System.out.println("한건조회");
+		System.out.println("조회할 번호를 입력 : ");
+		int EmployeeNo = sc.nextInt();
+		Employee emp = service.getEmployee(EmployeeNo);
+		System.out.println(emp);
 	}
 
 	public void getBoardList() {
@@ -105,10 +95,11 @@ public class EmpProc {
 	}
 
 	public void getBoardDelete() {
+		System.out.println("삭제");
 		System.out.println("삭제할 번호를 입력 : ");
-		int boardNo = sc.nextInt();
-		// Board boards = service.getBoardDelete(boardNo, boardAry);
-		// System.out.println(boards);
+		int EmpID = sc.nextInt();
+		Employee emp = service.deleteEmployee(EmpID);
+		
 	}
 
 	public void getupdateBoard() {
@@ -128,11 +119,11 @@ public class EmpProc {
 		int salary = sc.nextInt();
 		System.out.println("직종를 입력하세요 : ");
 		String jobId = sc.nextLine();
-		//입력 받은 값을 emp 인스턴스에 담는다.
+		// 입력 받은 값을 emp 인스턴스에 담는다.
 		Employee emp = new Employee();
 		emp.setEmployeeId(empId);
 		emp.setFirstName(firstName);
-		emp.setLastNmae(lastNmae);
+		emp.setLastName(lastNmae);
 		emp.setEmail(email);
 		emp.setHireDate(hireDate);// 2010-10-05
 		emp.setSalary(salary);

@@ -16,5 +16,5 @@ public interface EmployeeService {
 	public void updateEmployee(Employee emp);
 
 	// 삭제 처리
-	public void deleteEmployee(int empNp);
+	public Employee deleteEmployee(int empNp);
 }
