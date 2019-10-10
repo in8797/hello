@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.board.impl.BoardDBServiceImpl;
-import com.board.model.Board;
 import com.board.model.BoardDB;
 import com.board.model.BoardDBService;
-import com.board.model.Employee;
+
 
 public class BoardDBProc {
 	Scanner sc = new Scanner(System.in);
@@ -64,11 +63,12 @@ public class BoardDBProc {
 		board.setWriter(loginId);
 		service.insertBoard(board);
 	}
-	public void getBoardList(){
+	public void BoardList(){
 		System.out.println("게시글 전체 조회");
-		List<Board> Boards = service.getBoardList();
-//		for (BoardDB board : Boards) {
-//			System.out.println(board);
-//		}
+		List<BoardDB> bod = service.getBoardList();
+		for (BoardDB board : bod) {
+			if(board != null)
+			System.out.println(board);
+		}
 	}
 }

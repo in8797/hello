@@ -10,13 +10,13 @@ public interface BoardDBService {
 	public void insertBoard(BoardDB board);
 
 	// 게시글 전체 조회
-	public List<Board> getBoardList();
+	public List<BoardDB> getBoardList();
 
 	// 게시글 한건 조회
 	public BoardDB getBoard(int boardNo);
 
 	// 댓글 조회
-	public List<Board> getReply(int boardNo);
+	public List<BoardDB> getReply(int boardNo);
 
 	// 댓글 추가
 	public void insertReply(BoardDB board);

@@ -21,8 +21,8 @@ public class BoardDBServiceImpl implements BoardDBService{
 	}
 
 	@Override
-	public List<Board> getBoardList() {
-		List<Board> list = dao.getBoardList();
+	public List<BoardDB> getBoardList() {
+		List<BoardDB> list = dao.getBoardList();
 		return list;
 	}
 
@@ -32,7 +32,7 @@ public class BoardDBServiceImpl implements BoardDBService{
 	}
 
 	@Override
-	public List<Board> getReply(int boardNo) {
+	public List<BoardDB> getReply(int boardNo) {
 		return null;
 	}
 

@@ -10,7 +10,6 @@ import java.util.List;
 import com.board.common.DAO;
 import com.board.model.Board;
 import com.board.model.BoardDB;
-import com.board.model.Employee;
 
 public class BoardDBDAO {
 	Connection conn = null;
@@ -32,6 +31,12 @@ public class BoardDBDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return name;
 	}
@@ -59,22 +64,34 @@ public class BoardDBDAO {
 		}
 	}
 
-	public List<Board> getBoardList() {
-		List<Board> list = new ArrayList<>();
+	public List<BoardDB> getBoardList() {
+		List<BoardDB> list = new ArrayList<>();
 		conn = DAO.getConnect();
 		String sql = "select * from boards";
 		BoardDB bd = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
-//				bd.setBoardNo();
+			while (rs.next()) {
+				bd = new BoardDB();
+				bd.setBoardNo(rs.getInt("board_no"));
+				bd.setTitle(rs.getString("title"));
+				bd.setContent(rs.getString("content"));
+				bd.setWriter(rs.getString("writer"));
+				bd.setCreationDate(rs.getString("creation_date"));
+				list.add(bd);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
-		return null;
+		return list;
 	}
 
 }

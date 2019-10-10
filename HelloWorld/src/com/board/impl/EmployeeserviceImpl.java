@@ -16,14 +16,12 @@ public class EmployeeserviceImpl implements EmployeeService {
 
 	@Override
 	public Employee getEmployee(int empNo) {
-		Employee emp = dao.getEmployee(empNo);
-		return emp;
+		return null;
 	}
 
 	@Override
 	public void insertEmployee(Employee emp) {
-//		dao.insertEmp(emp);
-		dao.insertEmpProc(emp);
+		dao.insertEmp(emp);
 	}
 
 	@Override
