@@ -18,6 +18,7 @@ public class BoardProc {
 	BoardCollection  service = new BoardCollectionImpl();
 	public void execute() {
 		while (true) {
+			login_check();
 			System.out.println("메뉴선택하세요");
 			System.out.println("1.작성 2.단건조회 3.전체조회 4.삭제 5.변경");
 			int menu = 0;
@@ -47,6 +48,21 @@ public class BoardProc {
 			}
 		}
 		System.out.println("프로그램을 종료합니다.");
+	}
+	
+	public void login_check() {
+		while(true) {
+			System.out.println("id 입력");
+			String id = sc.nextLine();
+			System.out.println("passwd 입력");
+			String passwd=sc.nextLine();
+			if(id.equals("user1") && passwd.equals("1234")) {
+				System.out.println("방문자1님 환영합니다.");
+				break;
+			} else {
+				System.out.println("id, passwd 입력");
+			}
+		}
 	}
 
 	public void writeBoard() {
