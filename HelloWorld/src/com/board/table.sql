@@ -32,3 +32,18 @@ insert into boards values (3, 'titel1', 'content1', 'user1', sysdate, 1);
 insert into boards values (4, 'titel1', 'content1', 'user1', sysdate, 2);
 
 select * from boards;
+
+select * from boards where orig_no=?;
+
+
+select * from boards;
+
+
+alter table boards modify title null;
+
+update boards
+set title = 'titel1',
+content = 'content1'
+where board_no = 7;
+
+select * from boards;

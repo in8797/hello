@@ -6,12 +6,12 @@ import com.board.model.Board;
 import com.board.model.BoardDB;
 import com.board.model.BoardDBService;
 
-public class BoardDBServiceImpl implements BoardDBService{
+public class BoardDBServiceImpl implements BoardDBService {
 	BoardDBDAO dao = new BoardDBDAO();
-	
+
 	@Override
 	public String login_Check(String id, String passwd) {
-	String name = dao.getUserName(id, passwd);
+		String name = dao.getUserName(id, passwd);
 		return name;
 	}
 
@@ -28,27 +28,27 @@ public class BoardDBServiceImpl implements BoardDBService{
 
 	@Override
 	public BoardDB getBoard(int boardNo) {
-		return null;
+		return dao.getBoard(boardNo);
 	}
 
 	@Override
 	public List<BoardDB> getReply(int boardNo) {
-		return null;
+		return dao.getreplyList(boardNo);
 	}
 
 	@Override
 	public void insertReply(BoardDB board) {
-		
+		dao.replyBoard(board);
 	}
 
 	@Override
 	public void updateBoard(BoardDB board) {
-		
+		dao.updateBoard(board);
 	}
 
 	@Override
 	public void deleteBoard(int boardNo) {
-		
+
 	}
 
 }

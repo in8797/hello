@@ -99,7 +99,7 @@ public class EmpProc {
 		System.out.println("삭제할 번호를 입력 : ");
 		int EmpID = sc.nextInt();
 		Employee emp = service.deleteEmployee(EmpID);
-		
+
 	}
 
 	public void getupdateBoard() {
