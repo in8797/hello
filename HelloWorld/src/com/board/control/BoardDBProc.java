@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.board.impl.BoardDBServiceImpl;
 import com.board.model.BoardDB;
 import com.board.model.BoardDBService;
+import com.board.model.Employee;
 
 public class BoardDBProc {
 	Scanner sc = new Scanner(System.in);
@@ -34,7 +35,7 @@ public class BoardDBProc {
 				updateBoard();
 			} else if (menu == 5) {
 				System.out.println("5번을 선택했습니다.");
-				deleteBoard();
+				deleteBd();
 			}
 		}
 	}
@@ -51,6 +52,7 @@ public class BoardDBProc {
 		board.setBoardNo(boardNo);
 		board.setTitle(title);
 		board.setContent(content);
+		board.setWriter(loginId);
 
 		service.updateBoard(board);
 	}
@@ -90,10 +92,6 @@ public class BoardDBProc {
 				} else {
 					return;
 				}
-				{
-
-				}
-
 			}
 		}
 	}
@@ -136,11 +134,18 @@ public class BoardDBProc {
 
 		List<BoardDB> bod = service.getBoardList();
 		for (BoardDB board : bod) {
-			System.out.println(board);
+			System.out.println("글번호 : " + board.getBoardNo() + ", 제목 : " + board.getTitle() + ", 내용 : "
+					+ board.getContent() + ", 작성자 : " + board.getWriter() + ", 날짜 : " + board.getCreationDate());
 		}
 	}
 
-	public void deleteBoard() {
+	public void deleteBd() {
+		System.out.println("삭제할 번호를 입력 : ");
+		int bd_no = sc.nextInt();
+		BoardDB board = new BoardDB();
+		board.setBoardNo(bd_no);
+		board.setWriter(loginId);
+		service.deleteBoard(board);
 
 	}
 }

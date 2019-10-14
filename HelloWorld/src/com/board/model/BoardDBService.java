@@ -25,6 +25,6 @@ public interface BoardDBService {
 	public void updateBoard(BoardDB board);
 
 	// 삭제
-	public void deleteBoard(int boardNo);
+	public void deleteBoard(BoardDB board);
 
 }

@@ -15,6 +15,57 @@ public class BoardDBDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 
+	public void deleteBoard(BoardDB board) {
+		conn = DAO.getConnect();
+//		List<BoardDB> list = getreplyList(board.getBoardNo());
+		String sql = "delete from boards where board_no = ?";
+//		if (list.size() > 0) {
+//			System.out.println("댓글이 존재합니다.");
+//		} else {
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, board.getBoardNo());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+//		}
+	}
+
+	public boolean checkResponsibility(BoardDB board) {
+		conn = DAO.getConnect();
+		String sql = "select count(*) as cnt from boards where orig_no is null and board_no=? and writer=?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, board.getBoardNo());
+			pstmt.setString(2, board.getWriter());
+			
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt("cnt");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if (result > 0)
+			return true;
+		else
+			return false;
+	}
+
 	public void updateBoard(BoardDB board) {
 		conn = DAO.getConnect();
 		String sql = "update boards set orig_no = orig_no ";
@@ -36,27 +87,6 @@ public class BoardDBDAO {
 			}
 			pstmt.setInt(++n, board.getBoardNo());
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	public void deleteBoard(int boardNo) {
-		conn = DAO.getConnect();
-
-		String sql = "delete from boards where board_no = ?";
-
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-			pstmt.executeUpdate();
-			System.out.println("삭제 되었습니다.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

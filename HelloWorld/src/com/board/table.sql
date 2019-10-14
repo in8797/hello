@@ -47,3 +47,4 @@ content = 'content1'
 where board_no = 7;
 
 select * from boards;
+

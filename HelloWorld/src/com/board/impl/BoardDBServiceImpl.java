@@ -43,12 +43,25 @@ public class BoardDBServiceImpl implements BoardDBService {
 
 	@Override
 	public void updateBoard(BoardDB board) {
-		dao.updateBoard(board);
+		// 해당글에 대한 권한 확인.
+		if (dao.checkResponsibility(board)) {
+			dao.updateBoard(board);
+			System.out.println("변경되었습니다.");
+		} else {
+			System.out.println("해당글에 대한 권한이 없습니다.");
+		}
 	}
 
 	@Override
-	public void deleteBoard(int boardNo) {
-
+	public void deleteBoard(BoardDB board) {
+		System.out.println(board.getBoardNo());
+		System.out.println(board.getWriter());
+		if (dao.checkResponsibility(board)) {
+			dao.deleteBoard(board);
+			System.out.println("삭제되었습니다.");
+		} else {
+			System.out.println("해당글에 대한 권한이 없습니다.");
+		}
 	}
 
 }

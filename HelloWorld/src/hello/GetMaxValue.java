@@ -17,7 +17,6 @@ public class GetMaxValue {
 			// re=(re>aAry[i] ? re : aAry[i]);
 		}
 		System.out.println(re);
-
 	}
 
-}
+} 
