@@ -1,0 +1,53 @@
+package com.yadam.lambda;
+
+@FunctionalInterface
+interface MyInterface {
+	int print(int a, int b);
+}
+
+class MyInterfaceClass implements MyInterface {
+
+	@Override
+	public int print(int a, int b) {
+		return a + b;
+	}
+
+}
+
+public class LambdaBasicExample {
+	public static void main(String[] args) {
+		MyInterface mi = new MyInterfaceClass();
+//		int result = mi.print(4, 9);
+//		System.out.println("결과값은: " + result);
+
+		mi = (a, b) -> {
+
+			return a / b;
+		};
+		System.out.println("결과값은 : " + mi.print(8, 4));
+		
+		
+
+//		MyInterface mi = (a, b) -> {
+//			int c = 0;
+//			c = a + b;
+//			return c;
+//
+//		};
+//		
+//		int result = mi.print(3, 5);
+//		System.out.println("결과값은: " + result);
+
+//		mi = new MyInterface() {
+//
+//			@Override
+//			public int print(int a, int b) {
+//				return a - b;
+//			}
+//		};
+//		result = mi.print(7, 4);
+//		System.out.println("결과값은: " + result);
+
+
+	}
+}

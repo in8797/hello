@@ -15,6 +15,7 @@ public class BoardDBDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 
+	// 삭제
 	public void deleteBoard(BoardDB board) {
 		conn = DAO.getConnect();
 //		List<BoardDB> list = getreplyList(board.getBoardNo());
@@ -38,6 +39,7 @@ public class BoardDBDAO {
 //		}
 	}
 
+	// 게시글번호,작성자 체크
 	public boolean checkResponsibility(BoardDB board) {
 		conn = DAO.getConnect();
 		String sql = "select count(*) as cnt from boards where orig_no is null and board_no=? and writer=?";
@@ -46,7 +48,7 @@ public class BoardDBDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, board.getBoardNo());
 			pstmt.setString(2, board.getWriter());
-			
+
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				result = rs.getInt("cnt");
@@ -66,6 +68,7 @@ public class BoardDBDAO {
 			return false;
 	}
 
+	// 수정
 	public void updateBoard(BoardDB board) {
 		conn = DAO.getConnect();
 		String sql = "update boards set orig_no = orig_no ";
@@ -98,9 +101,10 @@ public class BoardDBDAO {
 		}
 	}
 
+	// 댓글조회
 	public List<BoardDB> getreplyList(int boardNo) {
 		conn = DAO.getConnect();
-		String sql = "select * from boards where orig_no = ?";
+		String sql = "select from boards where orig_no = ?";
 		List<BoardDB> list = new ArrayList();
 
 		try {
@@ -114,7 +118,7 @@ public class BoardDBDAO {
 				board.setContent(rs.getString("content"));
 				board.setWriter(rs.getString("writer"));
 				board.setCreationDate(rs.getString("creation_date"));
-
+				board.setOrgin_No(rs.getInt("orig_no"));
 				list.add(board);
 			}
 		} catch (SQLException e) {
@@ -158,6 +162,7 @@ public class BoardDBDAO {
 		return board;
 	}
 
+	// 로그인 체크
 	public String getUserName(String id, String passwd) {
 		conn = DAO.getConnect();
 		String sql = "select * from user_login where id=? and passwd=?";
@@ -183,6 +188,7 @@ public class BoardDBDAO {
 		return name;
 	}
 
+	// 게시글작성
 	public void replyBoard(BoardDB board) {
 		conn = DAO.getConnect();
 		String sql = "insert into boards values(board_seq.nextval,?,?,?,sysdate, ?)";
@@ -206,6 +212,7 @@ public class BoardDBDAO {
 		}
 	}
 
+	// 게시글작성
 	public void insertBoard(BoardDB board) {
 		conn = DAO.getConnect();
 		String sql = "insert into boards values(board_seq.nextval,?,?,?,sysdate, null)";
@@ -229,10 +236,12 @@ public class BoardDBDAO {
 		}
 	}
 
+	// 전체글조회
 	public List<BoardDB> getBoardList() {
 		List<BoardDB> list = new ArrayList<>();
 		conn = DAO.getConnect();
-		String sql = "select board_no, title, content, writer, creation_date from boards";
+//		String sql = "select b.*, get_reply_cnt(b.board_no) as reply_cnt board_no, title, content, writer, creation_date from boards";
+		String sql = "select b.*, get_reply_cnt(b.board_no) as reply_cnt from boards b where orig_no is null order by 1 desc";
 		BoardDB bd = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -240,10 +249,11 @@ public class BoardDBDAO {
 			while (rs.next()) {
 				bd = new BoardDB();
 				bd.setBoardNo(rs.getInt("board_no"));
-				bd.setTitle(rs.getString("title"));
+				bd.setTitle(rs.getString("title") + "(" + rs.getString("reply_cnt") + ")");
 				bd.setContent(rs.getString("content"));
 				bd.setWriter(rs.getString("writer"));
 				bd.setCreationDate(rs.getString("creation_date"));
+				bd.setOrgin_No(rs.getInt("orig_no"));
 				list.add(bd);
 			}
 		} catch (SQLException e) {
