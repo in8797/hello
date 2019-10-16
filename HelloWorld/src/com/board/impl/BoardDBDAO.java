@@ -106,7 +106,8 @@ public class BoardDBDAO {
 		conn = DAO.getConnect();
 		String sql = "select from boards where orig_no = ?";
 		List<BoardDB> list = new ArrayList();
-
+//		부서별조회(부서입력하면 부서만 조회, 부서입력안하면 전체조회: 부서출력되는 부분에 전체 인원표시)
+//		부서변경
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardNo);

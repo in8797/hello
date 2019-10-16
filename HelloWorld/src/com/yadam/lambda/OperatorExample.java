@@ -16,8 +16,8 @@ public class OperatorExample {
 	public static void main(String[] args) {
 		IntBinaryOperator oper = (left, right) -> {
 			int result = 0;
-			result = (left >= right ? left : right);
-			return result;
+//			result = (left >= right ? left : right);
+			return (left >= right ? left : right);
 
 		};
 		int result = minOrMax(oper);
